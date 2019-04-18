@@ -35,7 +35,7 @@ client.on("message", msg => {
     ];
     var streamOne;
     var random = parseInt(Math.random() * linkList.length);
-    streamOne = sites[random];
+    streamOne = linkList[random];
 
     const channel = msg.member.voiceChannel;
     channel
