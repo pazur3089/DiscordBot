@@ -10,69 +10,47 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 		
-	 if (~msg.content.indexOf('bochen')) {
+	 if (~msg.content.indexOf('bochen')) 
+	 {
 		  msg.delete()
 		   .then(msg => console.log(`Deleted message from ${msg.author.username}`))
 		   .catch(console.error);
 		  }
-	  if (~msg.content.indexOf('moje')) {
-		  	  msg.reply('chciales powiedziec nasze?!')
-		  	  .then(sent => console.log(`Sent a reply to ${sent.author.username}`))
-		  		.catch(console.error);
-		   }
-	  if (msg.content === 'our music')	 
-		  {
-		  	var stream1;
-		      var min=0; 
-		      var max=8;  
-		      var random =Math.floor(Math.random() * (+max - +min)) + +min;
-		  	if(random == 0) 
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=MLg83QMmlGs';
-					}
-		  	if(random == 1)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=OjINuMEuSKA';
-					}
-		  	if (random == 2)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=z7lZPSZFQak';
-					}
-		  	if(random == 3)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=YEt41bYQBgE';
-					}
-		  	if(random == 4)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=H4V2jlhWJD4';
-					}
-		  	if(random == 5)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=zgKazTrhXmI';
-					}
-		  	if(random == 6)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=NVpjt9gHlDw';
-					}
-		  	if(random == 7)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=umEDct4BoGc';
-					}
-		  	if(random == 8)
-			  	{
-						stream1 = 'https://www.youtube.com/watch?v=jZLHsqOXFkc';
-					}
-		  const channel = msg.member.voiceChannel;
-		  channel.join()
-		    .then(connection => {
-			        const stream = ytdl(stream1, { filter : 'audioonly' });
-			        broadcast.playStream(stream);
-			        const dispatcher = connection.playBroadcast(broadcast);
-			      })
-		    .catch(console.error);
-
-		    }
+	if (~msg.content.indexOf('idi')) 
+	{
+			msg.member.voiceChannel.leave();
+	}
+	if (msg.content === 'our bond')
+		asd('https://www.youtube.com/watch?v=q_fI3EWYZqU');
+	
+ if (msg.content === "our music") {
+    var linkList = [
+      "https://www.youtube.com/watch?v=MLg83QMmlGs",
+      "https://www.youtube.com/watch?v=OjINuMEuSKA",
+      "https://www.youtube.com/watch?v=z7lZPSZFQak",
+      "https://www.youtube.com/watch?v=YEt41bYQBgE",
+      "https://www.youtube.com/watch?v=H4V2jlhWJD4",
+      "https://www.youtube.com/watch?v=zgKazTrhXmI",
+      "https://www.youtube.com/watch?v=NVpjt9gHlDw",
+      "https://www.youtube.com/watch?v=umEDct4BoGc",
+      "https://www.youtube.com/watch?v=jZLHsqOXFkc"
+    ];
+    var random = parseInt(Math.random() * linkList.length);
+    var streamOne = linkList[random];
+	asd(streamOne);
+ }
+function asd(stream1)
+{			
+	const channel = msg.member.voiceChannel;
+	channel.join()
+		.then(connection => {
+		const stream = ytdl(stream1, { filter : 'audioonly' });
+		broadcast.playStream(stream);
+		const dispatcher = connection.playBroadcast(broadcast);
+	})
+	.catch(console.error);
+}
 	 });
  
 
-client.login('TOKEN');
+client.login('TOKEN);
