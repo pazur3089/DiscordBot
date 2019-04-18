@@ -1,13 +1,12 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
-const ytdl = require('ytdl-core');
+const ytdl = require("ytdl-core");
 const streamOptions = { seek: 0, volume: 1 };
 const broadcast = client.createVoiceBroadcast();
 
-client.on('ready', () => {
-	 console.log(`Logged in as ${client.user.tag}!`);
-	 });
-
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 client.on('message', msg => {
 		
 	 if (~msg.content.indexOf('bochen')) 
@@ -51,6 +50,4 @@ function asd(stream1)
 	.catch(console.error);
 }
 	 });
- 
-
 client.login('TOKEN);
