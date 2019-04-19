@@ -17,9 +17,7 @@ const linkList = [
 ];
 
 function randomLink() {
-  var random = parseInt(Math.random() * linkList.length);
-  location = linkList[random];
-  return location;
+  return linkList[parseInt(Math.random() * linkList.length)];
 }
 
 client.on("ready", () => {
