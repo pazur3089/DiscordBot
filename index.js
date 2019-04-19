@@ -23,7 +23,6 @@ function randomLink() {
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-
 client.on("message", msg => {
   if (~msg.content.indexOf("bochen")) {
     msg
@@ -31,23 +30,26 @@ client.on("message", msg => {
       .then(msg => console.log(`Deleted message from ${msg.author.username}`))
       .catch(console.error);
   }
-  if (~msg.content.indexOf("moje")) {
-    msg
-      .reply("chciales powiedziec nasze?!")
-      .then(sent => console.log(`Sent a reply to ${sent.author.username}`))
-      .catch(console.error);
-  }
-  if (msg.content === "our music") {
-    const channel = msg.member.voiceChannel;
-    channel
-      .join()
-      .then(connection => {
-        const stream = ytdl(randomLink(), { filter: "audioonly" });
-        broadcast.playStream(stream);
-        const dispatcher = connection.playBroadcast(broadcast);
-      })
-      .catch(console.error);
-  }
-});
-
-client.login("TOKEN");
+	if (~msg.content.indexOf('idi')) 
+	{
+			msg.member.voiceChannel.leave();
+	}
+	if (msg.content === 'our bond')
+		asd('https://www.youtube.com/watch?v=q_fI3EWYZqU');
+	
+ if (msg.content === "our music") {
+	asd(randomlink());
+ }
+function asd(stream1)
+{			
+	const channel = msg.member.voiceChannel;
+	channel.join()
+		.then(connection => {
+		const stream = ytdl(stream1, { filter : 'audioonly' });
+		broadcast.playStream(stream);
+		const dispatcher = connection.playBroadcast(broadcast);
+	})
+	.catch(console.error);
+}
+	 });
+client.login('TOKEN);
