@@ -15,39 +15,43 @@ const linkList = [
 	"https://www.youtube.com/watch?v=jZLHsqOXFkc"
 ];
 
+function randomLink() {
+  var random = parseInt(Math.random() * linkList.length);
+  location = linkList[random];
+  return location;
+}
+
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 client.on("message", msg => {
-	console.log(`${client.status}`);
   if (~msg.content.indexOf("bochen")) {
     msg
       .delete()
       .then(msg => console.log(`Deleted message from ${msg.author.username}`))
       .catch(console.error);
   }
-  if (~msg.content.indexOf("idi")) {
-    msg.member.voiceChannel.leave();
-  }
-  if (msg.content === "our bond")
-    playMusic("https://www.youtube.com/watch?v=q_fI3EWYZqU");
 
-  if (msg.content === "our music") {
-    playMusic(randomLink());
-  }
-
-  function randomLink() {
-    return linkList[parseInt(Math.random() * linkList.length)];
-  }
-
-  function playMusic(linkMusic) {
-	  const channel = msg.member.voiceChannel;
-    channel.join()
-        .then(connection => {
-        const stream = ytdl(linkMusic, { filter: "audioonly" });
-        const dispatcher = connection.playStream(stream, streamOptions);
-      })
-      .catch(console.error);
-  }
-});
-client.login("TOKEN");
+	if (~msg.content.indexOf('idi')) 
+	{
+			msg.member.voiceChannel.leave();
+	}
+	if (msg.content === 'our bond')
+		asd('https://www.youtube.com/watch?v=q_fI3EWYZqU');
+	
+ if (msg.content === "our music") {
+	asd(randomlink());
+ }
+function asd(stream1)
+{			
+	const channel = msg.member.voiceChannel;
+	channel.join()
+		.then(connection => {
+		const stream = ytdl(stream1, { filter : 'audioonly' });
+		broadcast.playStream(stream);
+		const dispatcher = connection.playBroadcast(broadcast);
+	})
+	.catch(console.error);
+}
+	 });
+client.login('TOKEN);
