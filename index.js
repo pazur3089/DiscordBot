@@ -15,16 +15,20 @@ const linkList = [
   "https://www.youtube.com/watch?v=jZLHsqOXFkc"
 ];
 
+function randomLink() {
+  var random = parseInt(Math.random() * linkList.length);
+  location = linkList[random];
+  return location;
+}
+
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on("message", msg => {
-
   console.log(`${client.status}`);
   //console.log(msg.content.toLowerCase());
   msg.content = msg.content.toLowerCase();
-
   if (~msg.content.indexOf("bochen")) {
     msg
       .delete()
