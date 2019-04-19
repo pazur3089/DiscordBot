@@ -2,18 +2,17 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const ytdl = require("ytdl-core");
 const streamOptions = { seek: 0, volume: 1 };
-const broadcast = client.createVoiceBroadcast();
 
 const linkList = [
-  "https://www.youtube.com/watch?v=MLg83QMmlGs",
-  "https://www.youtube.com/watch?v=OjINuMEuSKA",
-  "https://www.youtube.com/watch?v=z7lZPSZFQak",
-  "https://www.youtube.com/watch?v=YEt41bYQBgE",
-  "https://www.youtube.com/watch?v=H4V2jlhWJD4",
-  "https://www.youtube.com/watch?v=zgKazTrhXmI",
-  "https://www.youtube.com/watch?v=NVpjt9gHlDw",
-  "https://www.youtube.com/watch?v=umEDct4BoGc",
-  "https://www.youtube.com/watch?v=jZLHsqOXFkc"
+	"https://www.youtube.com/watch?v=MLg83QMmlGs",
+	"https://www.youtube.com/watch?v=OjINuMEuSKA",
+	"https://www.youtube.com/watch?v=z7lZPSZFQak",
+	"https://www.youtube.com/watch?v=YEt41bYQBgE",
+	"https://www.youtube.com/watch?v=H4V2jlhWJD4",
+	"https://www.youtube.com/watch?v=zgKazTrhXmI",
+	"https://www.youtube.com/watch?v=NVpjt9gHlDw",
+	"https://www.youtube.com/watch?v=umEDct4BoGc",
+	"https://www.youtube.com/watch?v=jZLHsqOXFkc"
 ];
 
 function randomLink() {
@@ -32,6 +31,7 @@ client.on("message", msg => {
       .then(msg => console.log(`Deleted message from ${msg.author.username}`))
       .catch(console.error);
   }
+
 	if (~msg.content.indexOf('idi')) 
 	{
 			msg.member.voiceChannel.leave();
