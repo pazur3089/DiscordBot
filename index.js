@@ -33,7 +33,7 @@ client.on("message", msg => {
     playMusic("https://www.youtube.com/watch?v=q_fI3EWYZqU");
 
   if (msg.content === "our music") {
-    playMusic(randomlink());
+    playMusic(randomLink());
   }
 
   function randomLink() {
